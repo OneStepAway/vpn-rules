@@ -22,14 +22,20 @@
 
 可将 `rules/company-direct.list` 作为规则集引入你的 Clash 配置，再在规则中引用对应的策略组。
 
+远程规则链接：
+
+`https://raw.githubusercontent.com/OneStepAway/vpn-rules/main/rules/company-direct.list`
+
 示例：
 
 ```yaml
 rule-providers:
   company-direct:
-    type: file
+    type: http
     behavior: classical
-    path: ./rules/company-direct.list
+    url: https://raw.githubusercontent.com/OneStepAway/vpn-rules/main/rules/company-direct.list
+    path: ./ruleset/company-direct.list
+    interval: 86400
 
 rules:
   - RULE-SET,company-direct,DIRECT
